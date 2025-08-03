@@ -1,0 +1,150 @@
+/* ---------- базовый сброс только для этой страницы ---------------------- */
+.container :global(*) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- фон --------------------------------------------------------- */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: black;
+  font-family: 'Courier New', monospace;
+  color: #fff;
+  overflow: hidden;
+}
+
+.backgroundVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.2);
+  z-index: 1;
+}
+
+/* ---------- оверлей и бейдж -------------------------------------------- */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.badge {
+  width: 450px;
+  padding: 30px 50px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 2px solid #fff;
+  border-radius: 10px;
+}
+
+.badge h2 {
+  text-align: center;
+  font-size: 1.45rem;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 10px;
+}
+
+/* ---------- поля -------------------------------------------------------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.field label {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 5px;
+}
+
+.field input,
+.field select {
+  padding: 7px 8px;
+  font-size: 0.9rem;
+  background: #111;
+  border: 1px solid #444;
+  border-radius: 4px;
+  color: #eee;
+}
+
+/* ---------- чекбоксы ---------------------------------------------------- */
+.checkbox label {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #aaa;
+  line-height: 1.3;
+}
+
+.checkbox input {
+  margin-top: 3px;
+}
+
+/* ---------- текст ошибки ------------------------------------------------ */
+.error {
+  color: #f66;
+  font-size: 0.9rem;
+  margin: 6px 0 12px;
+}
+
+/* ---------- кнопка ------------------------------------------------------ */
+.submitButton {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background: #1e1e1e;
+  color: #666;
+  cursor: not-allowed;
+  transition: background 0.25s ease;
+}
+
+.submitButtonEnabled {
+  background: #119d3e;
+  color: #fff;
+  cursor: pointer;
+}
+
+.submitButtonEnabled:hover {
+  background: #0d7c31;
+}
+
+/* ──────────────────────────────────────────────────────────── */
+/* 1. Делаем чекбокс миниатюрным (по-умолчанию браузер даёт ~16px) */
+.field.checkbox input[type="checkbox"] {
+  /* реальный размер квадрата */
+  width: 14px;
+  height: 14px;
+
+  /* убираем авто-масштаб в некоторых браузерах */
+  vertical-align: middle;
+  appearance: none;          /* сброс стандартного вида */
+  border: 2px solid #ccc;
+  background: #000;
+  cursor: pointer;
+}
+
+.field.checkbox input[type="checkbox"]:checked {
+  background: #0f0;          /* зелёная заливка при отметке */
+}
+
+/* 2. Прижимаем текст ближе к квадратику */
+.field.checkbox label {
+  display: flex;             /* ставим элементы в одну строку */
+  align-items: flex-start;
+  gap: 6px;                  /* расстояние между квадратом и текстом */
+  line-height: 1.3;
+  color: #ccc;
+}
+/* ──────────────────────────────────────────────────────────── */
